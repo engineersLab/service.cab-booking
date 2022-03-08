@@ -4,7 +4,7 @@
 ### DB setup
 1. Setup a local mysql db with docker or mysql
 2. Create database named `cab-booking`
-3. Run the migrations.
+3. Run the migrations from `https://github.com/engineersLab/database.cab-booking`.
 
 ### Service Setup
 1.  Clone this repo
