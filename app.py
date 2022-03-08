@@ -22,7 +22,6 @@ db_creds = config["database"]
 app.config[
     "SQLALCHEMY_DATABASE_URI"
 ] = f"mysql+pymysql://{db_creds['USERNAME']}:{db_creds['PASSWORD']}@{db_creds['HOST']}:{db_creds['PORT']}/cab-booking"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config[
     "SECRET_KEY"
 ] = "Drmhze6EPcv0fN_81Bj-nA"  # this can be stored in aws secrets and retrieved
