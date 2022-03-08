@@ -1,4 +1,4 @@
-# Service to book cab for developers
+## Service to book cab for developers
 
 ### Logic behind booking a cab
 1. Seating capacity of a cab is limited to 4 members
@@ -7,7 +7,7 @@
 
 
 ## QUICK START INSTRUCTIONS
-### Db setup
+### DB setup
 1. Setup a local mysql db with docker or mysql
 2. Create database named `cab-booking`
 3. Run the migrations.
