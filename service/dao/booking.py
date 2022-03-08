@@ -83,3 +83,23 @@ class BookingOps:
                 "registration_no": cab.reg_no,
             },
         }
+
+    @classmethod
+    def get_cab_bookings(cls, cab_id):
+        """
+        Method to get cab details
+
+        param: booking_id
+        """
+
+        try:
+            cab_details = Booking.query.filter_by(cab_id=cab_id).all()
+            result = []
+            for b in cab_details:
+                booking = cls.get_booking_details(b.booking_id)
+                result.append(booking)
+
+        except Exception as e:
+            raise e
+
+        return result

@@ -22,6 +22,7 @@ db_creds = config["database"]
 app.config[
     "SQLALCHEMY_DATABASE_URI"
 ] = f"mysql+pymysql://{db_creds['USERNAME']}:{db_creds['PASSWORD']}@{db_creds['HOST']}:{db_creds['PORT']}/cab-booking"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config[
     "SECRET_KEY"
 ] = "Drmhze6EPcv0fN_81Bj-nA"  # this can be stored in aws secrets and retrieved
@@ -145,6 +146,24 @@ def booking_details(booking_id):
         return jsonify(f"Error fetching booking details: {e}"), 400
 
     return jsonify(booking)
+
+
+@app.route("/cab-bookings/<int:cab_id>", methods=["GET"])
+def cab_bookings(cab_id):
+    """
+    Method to fetch cab details
+    """
+
+    if cab_id is None or not isinstance(cab_id, int):
+        return jsonify({"message": "Should provide booking_id"})
+
+    try:
+        bookings = BookingOps.get_cab_bookings(cab_id)
+    except Exception as e:
+        app.logger.error(f"Error fetching booking details: {e}")
+        return jsonify(f"Error fetching booking details: {e}"), 400
+
+    return jsonify(bookings)
 
 
 if __name__ == "__main__":

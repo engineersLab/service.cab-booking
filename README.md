@@ -58,3 +58,7 @@ Code part that handles the booking `service/utils/util/get_cab`
     ```
     endPoint -> `/booking-details/<int:booking_id>`
     ```
+5. Cab Bookings(GET):
+    ```
+    endPoint -> `/cab-bookings/<int:cab_id>`
+    ```
