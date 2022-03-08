@@ -27,4 +27,34 @@ Code part that handles the booking `service/utils/util/get_cab`
  - reserved_for -> reserves the cab for either frontend or backend developer
  - type_id -> stores the value of occupied developer (frontend or backend)
  - available_seats -> has the number of vacant seats in a cab
- 
+
+### APIS
+1. Signup(POST):
+    ```
+    endPoint -> `/signup`
+    bodyParams ->{
+        "name": "name",
+        "email": "name@gmail.com",
+        "password": "password",
+        "type": "frontend" // can be only frontend/backend
+    }
+    ```
+2. Signin(POST):
+    ```
+    endPoint -> `/signin`
+    bodyParams ->{
+        "email": "name@gmail.com",
+        "password": "password",
+    }
+    ```
+3. Create Booking(POST):
+    ```
+    endPoint -> `/book-cab`
+    bodyParams ->{
+        "developerId": 1 // the id of the developer to book the cab
+    }
+    ```
+4. Booking details(GET):
+    ```
+    endPoint -> `/booking-details/<int:booking_id>`
+    ```
