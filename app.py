@@ -149,6 +149,7 @@ def booking_details(booking_id):
 
 
 @app.route("/cab-bookings/<int:cab_id>", methods=["GET"])
+@jwt_required
 def cab_bookings(cab_id):
     """
     Method to fetch cab details
